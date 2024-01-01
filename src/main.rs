@@ -27,6 +27,10 @@ fn main() {
                 )
             };
         }
+        "-h" | "--help" | "help" => {
+            println!("usage: b2048 encode|decode");
+            println!("       pipe the input into stdin.");
+        }
         _ => {
             println!("invalid args")
         }
