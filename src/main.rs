@@ -20,10 +20,12 @@ fn main() {
             stdin()
                 .read_to_string(&mut input)
                 .expect("failed to read stdin");
-            print!(
-                "{}",
-                std::str::from_utf8(&decode(&input).expect("failed to decode")).unwrap()
-            );
+            unsafe {
+                print!(
+                    "{}",
+                    std::str::from_utf8_unchecked(&decode(&input).expect("failed to decode"))
+                )
+            };
         }
         _ => {
             println!("invalid args")
